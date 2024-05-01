@@ -34,6 +34,9 @@ const ChatScreen = () => {
 
   useEffect(() => {
     scrollToEnd();
+  }, [messages]);
+
+  useEffect(() => {
     const messagesRef = firebase.database().ref("/messages");
     const onReceive = (data) => {
       const msgData = data.val();
@@ -42,7 +45,6 @@ const ChatScreen = () => {
         msgs.push({ key: msg, val: msgData[msg] });
       }
       setMessages(msgs);
-      scrollToEnd();
     };
 
     messagesRef.on("value", onReceive, (error) =>
@@ -92,7 +94,6 @@ const ChatScreen = () => {
           };
           messagesRef.push(messageData);
           setMessage("");
-          scrollToEnd();
         } else {
           Alert.alert("Error", "User not found.");
           logout();
