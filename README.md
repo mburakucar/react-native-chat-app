@@ -148,9 +148,9 @@ const handleLogin = () => {
   };
 ```
 - The steps of the function that enables users to log out are as follows:
- - The reference of the relevant user in the 'users' section of the database is retrieved, and the 'remove' function of the reference is executed.
- - This function deletes the user-related data from the database, but the messages previously sent by the user continue to be stored.
- - The 'logoutHelper' function also clears the redux store data and async storage data within the application.
+  - The reference of the relevant user in the 'users' section of the database is retrieved, and the 'remove' function of the reference is executed.
+  - This function deletes the user-related data from the database, but the messages previously sent by the user continue to be stored.
+  - The 'logoutHelper' function also clears the redux store data and async storage data within the application.
 ```js
   const logout = () => {
     firebase
